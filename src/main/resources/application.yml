@@ -1,0 +1,36 @@
+###########################################################################################################
+# 1.0 Spring Configuartions                                                                               #
+###########################################################################################################
+spring:
+  application:
+    name: generic-data-viewer
+  jmx:
+    enabled: false
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  h2.console.enabled: true 
+    
+  datasource:
+    platform: h2
+    initialize: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate.ddl-auto: none
+    generate-ddl : true
+    hibernate:
+       naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+hibernate.dialect: org.hibernate.dialect.H2Dialect  
+
+## Data source config - Change here for any other datasource
+datasource:
+ url: jdbc:h2:mem:testdb
+ driverClassName: org.h2.Driver
+ username: sa
+ password: 
+debug: true
+
+
